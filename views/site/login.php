@@ -11,8 +11,10 @@ use yii\bootstrap5\Html;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+
+    <h1 class="text-3xl font-bold underline text-clifford"><?= Html::encode($this->title) ?></h1>
 
     <p>Please fill out the following fields to login:</p>
 
@@ -29,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
             ]); ?>
 
-            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+            <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
             <?= $form->field($model, 'password')->passwordInput() ?>
 
