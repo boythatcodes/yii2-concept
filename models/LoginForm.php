@@ -28,7 +28,7 @@ class LoginForm extends Model
         return [
             [['email', 'password'], 'required'],
             ['rememberMe', 'boolean'],
-            ['email', 'email','message'=>"The email isn't correct"],
+            ['email', 'email'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
         ];
@@ -67,14 +67,13 @@ class LoginForm extends Model
     /**
      * Finds user by [[username]]
      *
-     * @return User|null
+     * @return array|\yii\db\ActiveRecord
      */
     public function getUser()
     {
         if ($this->_user === false) {
             $this->_user = User::findByEmail($this->email);
         }
-
         return $this->_user;
     }
 }
