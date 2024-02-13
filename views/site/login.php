@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </div>
-            <div class="w-full flex flex-col-reverse md:flex-row p-2">
+            <div class="w-full flex flex-col-reverse sm:flex-row p-2">
                 <div class="px-2 border border-gray-900 max-w-sm" style="max-width: 280px; height: 264px !important;">
                     <span class="text-sm">Sign In with your <b class="text-bold">Social Network</b> Account</span>
                     <div class="w-full mt-2 flex gap-2">
