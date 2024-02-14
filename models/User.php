@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use yii\base\Security;
 use yii\db\ActiveRecord;
 
 class User extends ActiveRecord implements \yii\web\IdentityInterface
@@ -70,6 +71,6 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      */
     public function validatePassword($password)
     {
-        return $this->password === $password;
+        return (new Security())->validatePassword($password, $this->password);
     }
 }
