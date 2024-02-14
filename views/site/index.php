@@ -51,3 +51,36 @@ $this->title = 'My Yii Application';
 
     </div>
 </div>
+
+
+<script>
+    $.ajax({
+        url: '/pets/get', // Replace with the actual URL of your Yii2 controller action
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            console.log(response);
+            // Here you can further process the user ID received from the Yii2 controller
+        },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+        }
+    });
+
+    $.ajax({
+        url: '/pets/update', // Replace with the actual URL of your Yii2 controller action
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            _csrf: $('meta[name="csrf-token"]').attr('content'),
+            pets: []
+        },
+        success: function(response) {
+            console.log(response);
+            // Here you can further process the user ID received from the Yii2 controller
+        },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+        }
+    });
+</script>
