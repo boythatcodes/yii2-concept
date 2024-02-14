@@ -104,9 +104,10 @@ $this->title = 'Test Login';
         document.getElementById("cw").innerHTML =  "CW:" + elemWidth;
     }
     window.addEventListener("resize", resizeUpdate);
-    (function(){
+    $(function() {
         resizeUpdate();
-    })();
+    });
+    
 
     function update_dropdown(from){
         switch (from) {
@@ -170,7 +171,4 @@ $this->title = 'Test Login';
             font-size: 10px !important;
         }
     }
-    
-
-    
 </style>
