@@ -15,17 +15,17 @@ $this->title = 'Test Login';
 
     <div class="w-full max-w-md sm:max-w-lg ">
         <div class="text-red-500 font-semibold" id="cw">CW: 525</div>
-        <div class="w-full rounded border border-gray-900" id="mod">
-            <div class="w-full flex justify-between pt-2 pb-3 px-4 border-b border-b-gray-300" >
-                <h1 class="text-3xl font-medium">Customer Login</h1>
+        <div class="w-full rounded border border-gray-900 text-xs" id="mod">
+            <div class="w-full flex justify-between pt-2 pb-3 px-3 border-b border-b-gray-300" >
+                <h1 class="text-3xl font-medium" style="font-weight: 500;">Customer Login</h1>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-500 mt-2.5 hover:text-black cursor-pointer">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </div>
-            <div class="w-full flex flex-col-reverse sm:flex-row p-2">
-                <div class="px-2 border border-gray-900 max-w-sm" style="max-width: 280px; height: 264px !important;">
-                    <span class="text-sm">Sign In with your <b class="text-bold">Social Network</b> Account</span>
-                    <div class="w-full mt-2 flex gap-2">
+            <div class="w-full flex flex-col-reverse sm:flex-row p-2 sm:gap-4">
+                <div class="px-2 border border-gray-900 max-w-sm inner_social_login p-2" style=" height: 264px !important;">
+                    <span class="text-xs" >Sign In with your <b class="text-bold">Social Network</b> <br> Account</span>
+                    <div class="w-full mt-2 flex justify-between gap-2">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="h-8 cursor-pointer" alt="Google">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Linkedin-logo-blue-In-square-40px.png" class="h-8 cursor-pointer" alt="Google">
                         <img src="https://seeklogo.com/images/T/twitter-icon-square-logo-108D17D373-seeklogo.com.png" class="h-8 cursor-pointer" alt="Twitter">
@@ -41,28 +41,28 @@ $this->title = 'Test Login';
                     'inputOptions' => ['class' => 'col-lg-3 form-control'],
                     'errorOptions' => ['class' => 'col-lg-7 invalid-feedback'],
                 ],
-                'options' => ['class' => 'p-2 border border-gray-900 text-sm max-h-64']]); ?>
-                    <span class="">Sign In with your <b class="text-bold">MyLokal</b> Account <p class="relative r-0 text-right text-md" style="top: -60px; font-size: 16px;">No Account? <a href="#" class="text-blue-500">Signup</a></p></span>
+                'options' => ['class' => 'p-2 border border-gray-900 text-xs max-h-64']]); ?>
+                    <span class="">Sign In with your <b class="text-bold">MyLokal</b> Account <p class="relative r-0 text-right text-sm" style="top: -50px; ">No Account? <a href="#" class="text-blue-500">Signup</a></p></span>
                     <div class="-mt-2">
-                        <input onclick="update_dropdown('phone')" value="phone" name="type_of_mode" checked type="radio" on name="select_phone_email" id="phone">
-                        <label for="phone">Phone</label>
-                        <input onclick="update_dropdown('email')" value="email" name="type_of_mode" type="radio" name="select_phone_email" class="ml-4" id="email">
-                        <label for="email">Email</label>
+                        <input onclick="update_dropdown('phone')" value="phone" name="type_of_mode" checked type="radio" id="phone">
+                        <label for="phone" style="margin-top: -10px;">Phone Number</label>
+                        <input onclick="update_dropdown('email')" value="email" name="type_of_mode" type="radio" class="ml-2" id="email">
+                        <label for="email" style="margin-top: -10px;">Email</label>
                     </div>
-                    <div class="my-3 flex">
-                        <select name="phone" id="phone_code" class="bg-white border-t border-l border-b border-t-gray-300 border-b-gray-300 border-l-gray-300">
+                    <div class="mb-3 mt-1.5 flex phone_container">
+                        <select name="phone" id="phone_code" class="h-7 bg-white border-t border-l border-b border-t-gray-300 border-b-gray-300 border-l-gray-300">
                             <option value="+977">+977</option>
                         </select>
                         <?= $form->field($model, 'email')->textInput([
-                            'class' => 'w-full border border-gray-500 h-8 pl-2',
+                            'class' => 'w-full border border-gray-500 h-7 pl-2',
                             'placeholder' => 'Phone',
                             'id' => 'email_phone'
                         ])->label(false) ?>
                     </div>
                     <div class="mt-3 flex">
-                        <div class="w-full flex" style="max-width: 250px">
+                        <div class="w-full flex password_container">
                             <?= $form->field($model, 'password')->passwordInput([
-                                'class' => 'border border-gray-500 h-8 pl-2 w-full',
+                                'class' => 'border border-gray-500 h-7 pl-2 w-full',
                                 'placeholder' => 'Password',
                                 'id' => 'password'
                             ])->label(false) ?>
@@ -78,7 +78,7 @@ $this->title = 'Test Login';
                             </svg>
                         </div>
                         </div>
-                        <button class="bg-blue-800 p-2 text-xs text-white cursor-pointer active:ring active:ring-blue-300" style="width: 110px"> Get an OTP</button>
+                        <button class="bg-blue-800 text-xs text-white cursor-pointer active:ring active:ring-blue-300 py-0" style="width: 65px; "> Get an OTP</button>
                     </div>
                     <div class="mt-2">
                         <?=
@@ -88,7 +88,7 @@ $this->title = 'Test Login';
                         ?>
                     </div>
                     <div class="mt-2 mb-6 flex justify-between w-full max-w-md">
-                        <?= Html::submitButton('Login', ['class' => 'bg-blue-800 p-2 text-xs text-white cursor-pointer active:ring active:ring-blue-300', 'name' => 'login-button']) ?>
+                        <?= Html::submitButton('Sign In', ['class' => 'bg-blue-800 px-2 py-1 text-white cursor-pointer active:ring active:ring-blue-300 text-xxs', 'name' => 'login-button']) ?>
                         <a href="#" class="text-blue-500">Forgot password?</a>
                     </div>
                     <?php ActiveForm::end(); ?>
@@ -112,7 +112,7 @@ $this->title = 'Test Login';
         switch (from) {
             case "phone":
                 document.getElementById("phone_code").classList.remove("hidden");
-                email_phone.placeholder = "Phone"
+                email_phone.placeholder = "Phone Number"
                 break;
             default:
                 document.getElementById("phone_code").classList.add("hidden");
@@ -146,4 +146,31 @@ $this->title = 'Test Login';
     .field-password{
         width: 100%;
     }
+    .form-group {
+        margin-bottom: 0px;
+    }
+
+    .inner_social_login{
+        width: 280px;
+    }
+    .password_container{
+        max-width: 200px
+    }
+    @media (min-width: 640px){
+        .inner_social_login{
+            width: 270px;
+        }
+        .password_container{
+            max-width: 110px;
+        }
+        .phone_container{
+            width: 220px !important;
+        }
+        button{
+            font-size: 10px !important;
+        }
+    }
+    
+
+    
 </style>

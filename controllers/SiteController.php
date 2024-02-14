@@ -19,7 +19,7 @@ class SiteController extends Controller
     {
         return [
             'access' => [
-                'class' => AccessControl::class,
+                'class' => AccessControl::className(),
                 'only' => ['logout'],
                 'rules' => [
                     [
@@ -30,7 +30,7 @@ class SiteController extends Controller
                 ],
             ],
             'verbs' => [
-                'class' => VerbFilter::class,
+                'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
                 ],
@@ -61,6 +61,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect("/site/login");
+        }
         return $this->render('index');
     }
 
@@ -85,8 +88,6 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-
-
 
     /**
      * Logout action.
@@ -126,14 +127,5 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
-    }
-
-    public function actionTest()
-    {
-//        if (!Yii::$app->user->isGuest) {
-//            return $this->goHome();
-//        }
-//        return $this->asJson(["test"=>"Test Api"]);
-        return $this->render('test');
     }
 }

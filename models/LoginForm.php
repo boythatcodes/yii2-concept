@@ -26,9 +26,10 @@ class LoginForm extends Model
     public function rules()
     {
         return [
+            // username and password are both required
             [['email', 'password'], 'required'],
+            // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
-            ['email', 'email'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
         ];
@@ -67,13 +68,14 @@ class LoginForm extends Model
     /**
      * Finds user by [[username]]
      *
-     * @return array|\yii\db\ActiveRecord
+     * @return User|null
      */
     public function getUser()
     {
         if ($this->_user === false) {
             $this->_user = User::findByEmail($this->email);
         }
+
         return $this->_user;
     }
 }
