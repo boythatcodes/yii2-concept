@@ -59,7 +59,7 @@ class PetsController extends Controller
             ->select(['id', "name", "status", "location", "imageFile"])
             ->from('pets')
             ->where(['like', 'name', $query_param])
-            ->limit(3)
+            // ->limit(3)
             ->all();
 
         return $this->asJson(["result"=>1, 'pets' => $pets]);
