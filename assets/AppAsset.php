@@ -18,14 +18,22 @@ use yii\web\AssetBundle;
 class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
+    public $depends = [
+        'yii\web\YiiAsset',
+        'yii\bootstrap4\BootstrapAsset',
+    ];
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
     ];
     public $js = [
     ];
-    public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap4\BootstrapAsset',
-    ];
+
+
+    public function init()
+    {
+        parent::init();
+
+        $this->jsOptions['position'] = \yii\web\View::POS_HEAD;
+    }
 }
