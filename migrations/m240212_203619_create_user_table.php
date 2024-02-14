@@ -18,6 +18,7 @@ class m240212_203619_create_user_table extends Migration
             'password' => $this->string()->notNull(),
             'auth_key' => $this->string(),
             'access_token' => $this->string(),
+            'pets' => $this->string(),
             'created_at' => $this->timestamp()
         ]);
     }
